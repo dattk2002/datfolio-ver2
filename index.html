@@ -9,6 +9,7 @@
       src="https://kit.fontawesome.com/8691c722bf.js"
       crossorigin="anonymous"
     ></script>
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
   </head>
   <body>
     <div id="header">
@@ -27,9 +28,18 @@
           </ul>
         </nav>
         <div class="header-text">
-          <p>UI/UX Designer</p>
-          <h1>Hi, I'm <span>Dat Tran Kim</span><br />From Vietnam</h1>
+          <p>Front-end Web Developer</p>
+          <h1>Hi, I'm <span class="auto-type">Tran Kim Dat</span><br />From Vietnam</h1>
         </div>
+        <script>
+            var typed = new Typed(".auto-type", {
+                strings: ["Dat", "Tran", "Kim"],
+                typeSpeed: 50,
+                backSpeed: 300,
+                loop: true
+
+            })
+        </script>
       </div>
     </div>
     <!-- -------------------about-------------------- -->
@@ -201,16 +211,20 @@
                         <a href="https://www.instagram.com/kdat.bia_/"><i class="fa-brands fa-instagram"></i></a>
                         <a href="https://www.linkedin.com/in/kimdat0705/"><i class="fa-brands fa-linkedin"></i></a>
                     </div>
+                    <a href="images/Tran-Kim-Dat-TopCV.vn-100523.152523.pdf" download class="btn btn2">Download CV</a>
                 </div>
                 <div class="contact-right">
                     <form>
                         <input type="text" name="Name" placeholder="Please enter your name" required>
                         <input type="email" name="Email" placeholder="Please enter your email" required>
                         <textarea name="Message" rows="6" placeholder="Please enter your message"></textarea>
-                        <button type="submit">Submit</button>
+                        <button type="submit" class="btn btn2">Submit</button>
                     </form>
                 </div>
             </div>
+        </div>
+        <div class="copyright">
+            <p>Copyright © Kim Dat. Made with <i class="fa-solid fa-heart"></i> by myself</p>
         </div>
     </div>
 
