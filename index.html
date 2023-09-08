@@ -19,13 +19,15 @@
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/DAT-Solutions-Logo.svg/1280px-DAT-Solutions-Logo.svg.png"
             class="logo"
           />
-          <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Portfolio</a></li>
-            <li><a href="#">Contact</a></li>
+          <ul id="sidemenu">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <i class="fas fa-times" onclick="closemenu()"></i>
           </ul>
+          <i class="fas fa-bars" onclick="openmenu()"></i>
         </nav>
         <div class="header-text">
           <p>Front-end Web Developer</p>
@@ -214,12 +216,13 @@
                     <a href="images/Tran-Kim-Dat-TopCV.vn-100523.152523.pdf" download class="btn btn2">Download CV</a>
                 </div>
                 <div class="contact-right">
-                    <form>
+                    <form name="submit-to-google-sheet">
                         <input type="text" name="Name" placeholder="Please enter your name" required>
                         <input type="email" name="Email" placeholder="Please enter your email" required>
                         <textarea name="Message" rows="6" placeholder="Please enter your message"></textarea>
                         <button type="submit" class="btn btn2">Submit</button>
                     </form>
+                    <span id="msg">Hello</span>
                 </div>
             </div>
         </div>
@@ -243,5 +246,38 @@
         document.getElementById(tabname).classList.add("active-tab");
       }
     </script>
+
+    <script>
+
+      var sidemenu = document.getElementById("sidemenu");
+
+      function openmenu() {
+        sidemenu.style.right = "0";
+      }
+
+      function closemenu() {
+        sidemenu.style.right = "-200px"
+      }
+
+    </script>
+
+<script>
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbwsuCsX7UJOFzfGKH74cGD3XWrikropK-XOJ1qwCnlpnuDoW-mqJZOKgVJHSpjjyqYF/exec'
+  const form = document.forms['submit-to-google-sheet']
+  const msg = document.getElementById("msg")
+
+  form.addEventListener('submit', e => {
+    e.preventDefault()
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => {
+        msg.innerHTML = "Message sent successfully!"
+        setTimeout(function() {
+          msg.innerHTML = ""
+        }, 5000)
+        form.reset()
+      })
+      .catch(error => console.error('Error!', error.message))
+  })
+</script>
   </body>
 </html>
