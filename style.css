@@ -215,6 +215,16 @@ nav ul li a:hover::after {
   display: block;
   transition: transform 0.5s;
 }
+.work .img1 {
+    margin-top: 50px;
+}
+
+.work .img2 {
+    margin-top: 180px;
+}
+.work .img3 {
+    margin-top: 130px;
+}
 .layer {
   width: 100%;
   height: 0;
